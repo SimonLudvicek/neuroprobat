@@ -1,0 +1,994 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Lexend";
+    font-weight: 400;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.logo img {
+    width: 350px; /* Set the logo width */
+    margin-left: 3%;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menu a.active {
+    border-bottom: 2px solid #000; /* Underline active link */
+}
+
+.menu a:hover {
+    color: #555;
+}
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 3%;
+}
+
+.doctor-name {
+    font-weight: bold;
+    font-size: 20px;
+    font-size: 600;
+}
+
+.divider {
+    height: 35px;
+    width: 2px;
+    background-color: #000; /* Black vertical divider */
+}
+
+.contact-btn {
+    padding: 10px 20px;
+    border: 2px solid #CDBBAB33;
+    border-radius: 20px;
+    background-color: rgba(177, 139, 105, 0.2);
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: rgba(177, 139, 105, 0.5);
+    color: #333;
+}
+
+/*MOBILE MENU*/
+
+.mobile-menu {
+  display: none;
+  background-color: transparent; /* Žádné pozadí */
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  margin: 20px 0; /* Větší mezera mezi položkami */
+}
+
+.mobile-menu ul li a {
+  color: #000; /* Černá barva textu */
+  text-decoration: none;
+  font-family: 'Lexend', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 0;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Dolní linka mezi položkami */
+  text-align: left; /* Zarovnání textu vlevo */
+}
+
+/* Hamburger menu styling */
+.hamburger-menu {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-menu .line {
+  width: 30px;
+  height: 4px;
+  border-radius: 100px;
+  background-color: #B18B69; /* Hnědá barva */
+  transition: transform 0.3s ease;
+}
+
+/* Animace pro otevření/zavření menu */
+.hamburger-menu.active .line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+.content-wrapper {
+  transition: margin-top 0.3s ease;
+}
+
+
+.mobile-menu.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+/*HERO*/
+
+.hero-section {
+  width: 90%;
+  max-width: 1300px;
+  height: 728px;
+  border-radius: 50px;
+  background: #CDBBAB33;
+  margin: 50px auto;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hero-text {
+  color: #1E1E1E;
+  margin-top: 80px;
+  margin-left: 50px;
+  max-width: 790px;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 80px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  margin-bottom: 40px;
+  width: 494px;
+}
+
+.hero-button {
+  width: 275px;
+  height: 76px;
+  font-family: 'Lexend';
+  font-weight: 500;
+  border-radius: 45.83px;
+  background: linear-gradient(180deg, #B18B69 0%, rgba(177, 139, 105, 0.6) 100%);
+  border: 0.92px solid #FFFFFF;
+  color: #FFFFFF;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  opacity: 0.9;
+}
+
+.hero-images {
+  position: absolute;
+  top: 150px;
+  right: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-office {
+  width: 590px;
+  height: 495px;
+  z-index: 3;
+  position: relative;
+}
+
+.ellipse-brown {
+  width: 652px;
+  height: 354px;
+  position: absolute;
+  top: 80px;
+  left: -10px;
+  transform: rotate(176.22deg);
+  z-index: 2;
+}
+
+.ellipse-white {
+  width: 647px;
+  height: 306px;
+  position: absolute;
+  top: 130px;
+  left: -40px;
+  transform: rotate(177.84deg);
+  z-index: 1;
+}
+
+.exclamation {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  top: 20px;
+  right: 20px;
+  border-radius: 45.83px;
+  background: linear-gradient(180deg, #B18B69 0%, rgba(177, 139, 105, 0.6) 100%);
+  border: 3px solid #FFFFFF;
+}
+
+.exclamation img {
+  width: 13px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*PARTNERS*/
+
+.partners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+  }
+  
+  .partner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 100px;
+  text-align: center;
+  margin: 10px;
+  flex-direction: row;
+  }
+  
+  .partner img {
+  max-height: 80px;
+  }
+  
+  .partners-h2 {
+  overflow-wrap: break-word;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #AF896880;
+  text-align: center;
+  }
+
+  /*INFO*/
+
+  .divider-2 {
+    width: 90%;
+    max-width: 1300px;
+    height: 1px;
+    border: 3px solid #cdbbab;
+    border-radius: 50px;
+    margin: 0 auto 60px; /* Zarovnání na střed a prostor pod ním */
+    opacity: 0.2;
+}
+
+  .info-section {
+    width: 90%;
+    max-width: 1300px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.info-title {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info-description {
+    margin: auto;
+    max-width: 1230px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1E1E1E;
+    margin-bottom: 40px;
+}
+
+.info-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-image {
+    width: 802px;
+    height: 524px;
+    border-radius: 20px;
+    margin-bottom: 80px;
+}
+
+/*CARDS*/
+
+.cards-section {
+  max-width: 1300px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  background-color: #CDBBAB33;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+
+}
+
+.card-doctor {
+  max-width: 885px;
+  display: flex;
+}
+
+.card-nurse {
+  max-width: 380px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-image {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.card-photo-doctor {
+  width: 344px;
+  height: 423.52px;
+  object-fit: cover;
+}
+
+.card-photo-nurse {
+  width: 249.9px;
+  height: 310px;
+  object-fit: cover;
+}
+
+/* Styl pro doktora */
+.card-title-doctor {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-description-doctor {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  margin: 70px 40px 30px auto;
+  max-width: 400px;
+}
+
+.card-list-doctor {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.card-list-doctor li {
+  margin-bottom: 30px;
+  margin-left: 35px;
+}
+
+/* Styl pro sestru */
+.card-title-nurse {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-subtitle-nurse {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #999;
+  text-align: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+/*MAP*/
+
+.divider-3 {
+  width: 90%;
+  max-width: 500px;
+  height: 1px;
+  border: 3px solid #cdbbab;
+  border-radius: 50px;
+  margin: 70px auto 0px; 
+  opacity: 0.2;
+}
+
+.map {
+  border-radius: 25px;
+}
+
+gmp-map {
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  width:80%;
+  height:600px;
+}
+
+/*CONTACT*/
+
+.contact {
+  background-color: #CDBBAB33;
+  ; /* Barva pozadí pro celou sekci */
+  padding: 50px 20px;
+  margin: 50px auto 50px auto;
+  max-width: 1000px;
+  max-height: 250px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-sizing: border-box; 
+  border-radius: 50px;
+  }
+  
+  .contact-content {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Mezera mezi textovým blokem a tlačítkem */
+  }
+  
+  .text-block {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  column-gap: 0px;
+  align-items: flex-start;
+  }
+  .text-block h2{
+  overflow-wrap: break-word;
+  font-weight: 700;
+  font-size: 52px;
+  color: #000;
+  }
+  
+  .text-block p{
+  margin-top: 20px;
+  overflow-wrap: break-word;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #1E1E1E;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius:100px;
+    background: linear-gradient(180deg, #B18B69 0%, rgba(177, 139, 105, 0.6) 100%);
+    color: #ffffff;
+    text-decoration: none;
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    transition: background-color 0.3s ease;
+    }
+
+    /*FOOTER*/
+
+    .footer-section {
+      background-color: #fff;
+      padding: 40px 0;
+      margin-top: -30px;
+  }
+  
+  .footer-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  .footer-logo {
+      display: flex;
+      align-items: center;
+  }
+  
+  .footer-logo-img {
+      width: 60px;
+      margin-right: 10px;
+  }
+  
+  .footer-text h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+  }
+  
+  .footer-text p {
+      font-size: 14px;
+      color: #333;
+  }
+  
+  .footer-back-to-top {
+      text-align: center;
+  }
+  
+  .footer-back-to-top button {
+    padding: 10px 40px;
+    border: 2px solid #CDBBAB33;
+    border-radius: 31px;
+    background-color: rgba(177, 139, 105, 0.2);
+    text-decoration: none;
+    color: #000;
+    font-family: 'Lexend';
+    font-weight: 500;
+    font-size: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .footer-back-to-top:hover button {
+    background-color: rgba(177, 139, 105, 0.5);
+    color: #333;
+}
+  
+  .footer-contact {
+      text-align: left;
+  }
+  
+  .footer-contact h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+  
+  .footer-contact ul {
+      list-style-type: none;
+      padding: 0;
+  }
+  
+  .footer-contact ul li {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+  }
+  
+  .footer-contact ul li img {
+      width: 16px;
+      margin-right: 10px;
+  }
+  
+  .footer-bottom {
+      max-width: 1300px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+      font-size: 12px;
+      color: #333;
+      padding-top: 20px;
+  }
+  
+  .inline-logo {
+    display: inline; /* Nastaví obrázek jako inline prvek */
+    vertical-align: middle; /* Upraví vertikální zarovnání loga vedle textu */
+    margin-left: 5px; /* Přidá mezeru mezi textem a logem */
+    margin-bottom: 2px;
+}
+
+  .footer-left p{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .footer-left {
+      text-align: left;
+  }
+  
+  .footer-center {
+      text-align: center;
+      flex-grow: 1; /* Centrovaný text */
+  }
+  
+  .footer-bottom a {
+      color: #000;
+      text-decoration: underline;
+      font-weight: 600;
+  }
+
+/* Media Query pro obrazovku 1380px */
+@media (max-width: 1380px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .hero-button {
+    margin-top: 20px;
+  }
+
+  .hero-images {
+    position: static;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column; /* Obrázky budou pod sebou */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-office {
+    width: 500px;
+    height: auto;
+  }
+
+  .ellipse-brown,
+  .ellipse-white {
+    display: none;
+    
+  } 
+ 
+}
+
+@media (min-width: 769px) {
+  .mobile-menu, .hamburger-menu, .mobile-logo {
+      display: none !important;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+  /*NAVBAR*/
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /*MOBILE MENU*/
+
+    .menu, .contact-section, .desktop-logo {
+      display: none; /* Skrytí desktopového menu a loga na mobilních zařízeních */
+  }
+
+  .hamburger-menu {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+}
+
+/* Přidání mobilního loga */
+.mobile-logo {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.mobile-logo img {
+    width: 300px; /* Velikost mobilního loga */
+    height: auto;
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    height: auto; /* Automatická výška podle obsahu */
+    z-index: 1000;
+    padding: 20px;
+}
+
+.navbar-toggle {
+  margin-bottom: 50px;
+}
+
+    /*HERO*/
+
+    .hero-section {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .hero-title {
+      font-size: 36px;
+      line-height: 45px;
+      text-align: center;
+    }
+  
+    .hero-description {
+      font-size: 16px;
+      line-height: 20px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .hero-button {
+      width: 200px;
+      height: 60px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  
+    .hero-images {
+      flex-direction: column;
+      position: static;
+      margin-top: 20px;
+    }
+  
+    .image-office {
+      width: 100%;
+      height: auto;
+    }
+  
+    .ellipse-brown,
+  .ellipse-white {
+    display: none;
+  
+  }
+  
+    .exclamation {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .exclamation img {
+      width: 6px;
+      height: auto;
+    }
+
+    .partners {
+      margin-top: 0px;
+      gap: 50px; /* Zvětšení mezery mezi logy */
+      display: flex;
+      justify-content: start; /* Zarovnání log vlevo */
+    }
+  
+    .partner {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .partner-text{
+      font-size: 14px;
+    }
+  
+    .partner img {
+      max-width: 100%;
+      max-height: 80px;
+    }
+  
+    .partner::before,
+    .partner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 10px;
+      
+      z-index: 1;
+    }
+  
+    .partner::before {
+      left: 0;
+    }
+  
+    .partner::after {
+      right: 0;
+    }
+
+    /*INFO*/
+
+    .info-title {
+      font-size: 36px;
+  }
+
+  .info-description {
+      font-size: 16px;
+      width: 100%;
+      padding: 0 10px;
+      text-align: center;
+  }
+
+  .info-image {
+      width: 100%;
+      height: auto;
+  }
+
+  /*CARDS*/
+
+  .cards-section {
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    flex-direction: column;
+    text-align: center;
+}
+
+.card-image {
+    margin: 0 0 20px 0;
+}
+
+.card-photo-doctor {
+  width: 100%;
+}
+
+.card-doctor,
+.card-nurse {
+    max-width: 90%;
+}
+
+.card-title-doctor,
+.card-title-nurse {
+    text-align: center;
+}
+
+.card-description-doctor {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+  /*CONTACT*/
+
+  .contact {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  
+    .contact-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .contact-text {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .text-block {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .text-block h2{
+      font-size: 40px;
+      text-align: center;
+      
+    }
+    
+    .text-block p{
+      font-size: 16px;
+      margin: auto auto auto auto;
+    }
+
+    .cta-button {
+      margin: auto auto auto auto;
+      
+    }
+
+    /*FOOTER*/
+
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-contact {
+      margin-top: 20px;
+      text-align: center;
+  }
+
+  .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+  }
+}

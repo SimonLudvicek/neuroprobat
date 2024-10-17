@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objednávka</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/logoneuro.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/kontakt.css">
+</head>
+<body>
+<div class="content-wrapper">
+    <nav class="navbar">
+        <div class="logo desktop-logo">
+            <a href="../index.html"><img src="../assets/images/2Logo-Č copy 8.png" alt="Neuro Probat Logo"></a>
+        </div>
+        
+        <div class="menu">
+            <a href="sluzby.html" class="nav-link">EMG Vyšetření</a>
+            <a href="kontakt.html" class="nav-link active">Objednávka</a>
+        </div>
+
+        <div class="contact-section">
+            <span class="doctor-name">MUDr. Jantošík Patrik</span>
+            <div class="divider"></div>
+            <a href="kontakt.html" class="contact-btn">Kontakt</a>
+        </div>
+
+        <div class="navbar-toggle">
+            <div class="mobile-logo">
+                <a href="../index.html"><img src="../assets/images/2Logo-Č copy 8.png" alt="Neuro Probat Logo"></a>
+            </div>
+            <div class="hamburger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="sluzby.html">EMG Vyšetření</a></li>
+                <li><a href="kontakt.html">Objednávka</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="alert-box" class="alert">
+        <p>Formulář je dočasně nedostupný. Kontaktujte nás prosím na emailu: <a href="mailto:ordinace@neuroprobat.cz">ordinace@neuroprobat.cz</a></p>
+        <span id="close-alert" class="close-btn">&times;</span>
+    </div>
+
+    <section class="order-section">
+        <div class="order-container">
+            <h2 class="order-heading">Objednávka</h2>
+            <form class="order-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="b5361d4b-2739-4e63-8f1e-6f1e788adf25">
+                <div class="form-row">
+                    <input type="text" name="Jméno a Příjmení" placeholder="Vaše celé jméno" class="form-input" required>
+                    <div class="select-wrapper">
+                        <select class="form-input" name="Zvolená možnost" required>
+                            <option value="recept">Recept</option>
+                            <option value="vyšetření">Objednání k vyšetření</option>
+                            <option value="jiná zpráva">Jiná zpráva</option>
+                        </select>
+                        <img src="../assets/vectors/arrow.svg" alt="Arrow" class="arrow-icon">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <input type="email" name="email"  placeholder="E-mailová adresa" class="form-input" required>
+                    <input type="tel" name="telfoní číslo" placeholder="Telefonní číslo" class="form-input" required>
+                </div>
+                <textarea placeholder="Předmět zprávy" name="Předmět zprávy" class="form-input message-input" required></textarea>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">Souhlasím se zpracováním osobních údajů</label>
+                </div>
+                <button type="submit" class="submit-button">OBJEDNAT SE</button>
+                <!-- <input type="hidden" name="redirect" value="https://www.neuroprobat.cz/pages/dekujeme.html"> -->
+            </form>
+        </div>
+    
+        <div class="divider-1"></div>
+    
+        <div class="opening-hours">
+            <h3 class="hours-title">Otevírací hodiny</h3>
+            <div class="hours-box">
+                <ul class="hours-list">
+                    <li>Pondělí: <span>13:30 - 18:00</span></li>
+                    <li>Úterý: <span>7:00 - 11:00</span></li>
+                    <li>Středa: <span>13:30 - 18:00</span></li>
+                    <li>Čtvrtek: <span>15:30 - 18:00</span></li>
+                    <li>Pátek: <span>12:00 - 18:00</span></li>
+                    <li>Sobota: <span>zavřeno</span></li>
+                    <li>Neděle: <span>zavřeno</span></li>
+                </ul>
+            </div>
+    
+            <h3 class="hours-title">Otevírací hodiny <br> <span class="brown">pro zvané</span></h3>
+            <div class="hours-box">
+                <ul class="hours-list">
+                    <li>Pondělí: <span>18:00 - 20:00</span></li>
+                    <li>Úterý: <span>zavřeno</span></li>
+                    <li>Středa: <span>18:00 - 20:00</span></li>
+                    <li>Čtvrtek: <span>18:00 - 20:00</span></li>
+                    <li>Pátek: <span>18:00 - 20:00</span></li>
+                    <li>Sobota: <span>zavřeno</span></li>
+                    <li>Neděle: <span>zavřeno</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="divider-2"></div>
+
+    <footer class="footer-section">
+      <div class="footer-content">
+          <div class="logo">
+              <img src="../assets/images/2Logo-Č copy 8.png" alt="Neuro Probat Logo" class="footer-logo-img">
+          </div>
+    
+          <div class="footer-back-to-top">
+              <button onclick="smoothScrollToTop()">Nahoru</button>
+          </div>
+    
+          <div class="footer-contact">
+              <h4>Kontakt</h4>
+              <ul>
+                  <li><img src="../assets/vectors/phone.svg" alt="Phone"> (+420) 733 688 300</li>
+                  <li><img src="../assets/vectors/mail.svg" alt="Email"> ordinace@neuroprobat.cz</li>
+                  <li><img src="../assets/vectors/pin.svg" alt="Location"> Ostrožná 244/27, Opava, 74601<br> 2.patro vpravo</li>
+              </ul>
+          </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <div class="footer-left">
+            <p>Web vytvořil: <a href="https://thepiksel.com"><img src="../assets/vectors/2.1 Piksel na Web 1.svg" alt="The Piksel Logo" class="inline-logo"></a></p> 
+        </div>
+        <div class="footer-center">
+            <p>© 2024 Neuro Probat Všechna práva vyhrazena. <br> <a href="#">zásady ochrany soukromí</a></p>
+        </div>
+    </div>
+    </footer>
+</div>
+
+<script src="../script.js"></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+    </body>
+    </html>

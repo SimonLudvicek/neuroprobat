@@ -1,0 +1,680 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Lexend";
+    font-weight: 400;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.logo img {
+    width: 350px; /* Set the logo width */
+    margin-left: 3%;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menu a.active {
+    border-bottom: 2px solid #000; /* Underline active link */
+}
+
+.menu a:hover {
+    color: #555;
+}
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 3%;
+}
+
+.doctor-name {
+    font-weight: bold;
+    font-size: 20px;
+    font-size: 600;
+}
+
+.divider {
+    height: 35px;
+    width: 2px;
+    background-color: #000; /* Black vertical divider */
+}
+
+.contact-btn {
+    padding: 10px 20px;
+    border: 2px solid #CDBBAB33;
+    border-radius: 20px;
+    background-color: rgba(177, 139, 105, 0.2);
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: rgba(177, 139, 105, 0.5);
+    color: #333;
+}
+
+/*MOBILE MENU*/
+
+.mobile-menu {
+    display: none;
+    background-color: transparent; /* Žádné pozadí */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile-menu ul li {
+    margin: 20px 0; /* Větší mezera mezi položkami */
+  }
+  
+  .mobile-menu ul li a {
+    color: #000; /* Černá barva textu */
+    text-decoration: none;
+    font-family: 'Lexend', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Dolní linka mezi položkami */
+    text-align: left; /* Zarovnání textu vlevo */
+  }
+  
+  /* Hamburger menu styling */
+  .hamburger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .hamburger-menu .line {
+    width: 30px;
+    height: 4px;
+    border-radius: 100px;
+    background-color: #B18B69; /* Hnědá barva */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Animace pro otevření/zavření menu */
+  .hamburger-menu.active .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .hamburger-menu.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-menu.active .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  
+  .content-wrapper {
+    transition: margin-top 0.3s ease;
+  }
+  
+  
+  .mobile-menu.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    background-color: transparent;
+  }
+
+/*INTRO*/
+
+.services-intro-section {
+    width: 90%;
+    max-width: 1300px;
+    margin: 50px auto;
+    background-color: #CDBBAB33;
+    border-radius: 50px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services-intro-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #1E1E1E;
+    margin-bottom: 20px;
+}
+
+.services-intro-description {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1E1E1E;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/*CARDS*/
+
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+    max-width: 1300px;
+    margin: 50px auto;
+}
+
+.card {
+    width: 300px;
+    height: 350px;
+    background: #CDBBAB33;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    padding-top: 40px;
+    margin-bottom: 40px;
+}
+
+.card-number {
+    font-size: 64px;
+    font-weight: 600;
+    color: #1E1E1E;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Zůstává relativní, aby číslo bylo uvnitř karty */
+    margin-bottom: 20px; /* Mezera mezi číslem a textem */
+}
+
+.card-text {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1E1E1E;
+    flex-grow: 1;
+}
+
+.card::after {
+    content: '';
+    width: 100%;
+    height: 30px;
+    background: #B18B69;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/*TExT SECTION*/
+
+.content-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1300px;
+    width: 100%;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+    justify-content: center;
+    gap: 20px;
+}
+
+.section.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-1, .text-2 {
+    flex: 1;
+    font-family: 'Lexend';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #1E1E1E;
+    text-align: center;
+    max-width: 593px;
+    margin-bottom: 20px;
+}
+
+.text-1 p, .text-2 p {
+    margin-bottom: 20px; /* Přidána mezera mezi odstavce */
+}
+
+.heading {
+    font-family: 'Lexend';
+    font-weight: 600;
+    font-size: 52px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.section img {
+    max-width: 740px;
+    height: auto;
+    margin-left: 20px;
+}
+
+/*DIVIDERS*/
+
+.divider-2 {
+    width: 90%;
+    max-width: 1300px;
+    height: 1px;
+    border: 3px solid #cdbbab;
+    border-radius: 50px;
+    margin: 0 auto 60px; /* Zarovnání na střed a prostor pod ním */
+    opacity: 0.2;
+}
+
+.divider-3 {
+    width: 90%;
+    max-width: 500px;
+    height: 1px;
+    border: 3px solid #cdbbab;
+    border-radius: 50px;
+    margin: 70px auto 0px; 
+    opacity: 0.2;
+  }
+
+/*CONTACT*/
+
+.contact {
+    background-color: #CDBBAB33;
+    ; /* Barva pozadí pro celou sekci */
+    padding: 50px 20px;
+    margin: 50px auto 50px auto;
+    max-width: 1000px;
+    max-height: 250px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
+    border-radius: 50px;
+    }
+    
+    .contact-content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Mezera mezi textovým blokem a tlačítkem */
+    }
+    
+    .text-block {
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 0px;
+    align-items: flex-start;
+    }
+    .text-block h2{
+    overflow-wrap: break-word;
+    font-weight: 700;
+    font-size: 52px;
+    color: #000;
+    }
+    
+    .text-block p{
+    margin-top: 20px;
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #1E1E1E;
+    }
+  
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      border-radius:100px;
+      background: linear-gradient(180deg, #B18B69 0%, rgba(177, 139, 105, 0.6) 100%);
+      color: #ffffff;
+      text-decoration: none;
+      overflow-wrap: break-word;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.5;
+      transition: background-color 0.3s ease;
+      }
+
+/*FOOTER*/
+
+.footer-section {
+    background-color: #fff;
+    padding: 40px 0;
+    margin-top: -30px;
+}
+
+.footer-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.footer-text h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.footer-text p {
+    font-size: 14px;
+    color: #333;
+}
+
+.footer-back-to-top {
+    text-align: center;
+}
+
+.footer-back-to-top button {
+  padding: 10px 40px;
+  border: 2px solid #CDBBAB33;
+  border-radius: 31px;
+  background-color: rgba(177, 139, 105, 0.2);
+  text-decoration: none;
+  color: #000;
+  font-family: 'Lexend';
+  font-weight: 500;
+  font-size: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-back-to-top:hover button {
+  background-color: rgba(177, 139, 105, 0.5);
+  color: #333;
+}
+
+.footer-contact {
+    text-align: left;
+}
+
+.footer-contact h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer-contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact ul li img {
+    width: 16px;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    padding-top: 20px;
+}
+
+.inline-logo {
+  display: inline; /* Nastaví obrázek jako inline prvek */
+  vertical-align: middle; /* Upraví vertikální zarovnání loga vedle textu */
+  margin-left: 5px; /* Přidá mezeru mezi textem a logem */
+  margin-bottom: 2px;
+}
+
+.footer-left p{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-center {
+    text-align: center;
+    flex-grow: 1; /* Centrovaný text */
+}
+
+.footer-bottom a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+@media (min-width: 769px) {
+    .mobile-menu, .hamburger-menu, .mobile-logo {
+        display: none !important;
+    }
+  }
+
+@media (max-width: 768px) {
+
+    /*NAVBAR*/
+      .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+  
+      .menu {
+          margin-top: 10px;
+          flex-direction: column;
+      }
+  
+      .contact-section {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+
+      /*MOBILE MENU*/
+
+    .menu, .contact-section, .desktop-logo {
+        display: none; /* Skrytí desktopového menu a loga na mobilních zařízeních */
+    }
+  
+    .hamburger-menu {
+      display: flex;
+      position: absolute;
+      right: 20px;
+      top: 30px;
+  }
+  
+  /* Přidání mobilního loga */
+  .mobile-logo {
+      display: flex;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+  }
+  
+  .mobile-logo img {
+      width: 300px; /* Velikost mobilního loga */
+      height: auto;
+  }
+  
+  .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      height: auto; /* Automatická výška podle obsahu */
+      z-index: 1000;
+      padding: 20px;
+  }
+
+  .navbar-toggle {
+    margin-bottom: 50px;
+  }
+
+      /*INTRO*/
+
+      .services-intro-title {
+        font-size: 28px;
+    }
+
+    .services-intro-description {
+        font-size: 16px;
+    }
+
+      /*CARDS*/
+
+      .cards-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /*SERVICES*/
+
+    .section, .section.reverse {
+        flex-direction: column;
+        padding: 30px 0;
+    }
+
+    .section img {
+        margin-left: 0;
+        margin-top: 20px;
+        max-width: 100%; /* Přizpůsobí obrázek menším obrazovkám */
+    }
+
+      /*CONTACT*/
+
+  .contact {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  
+    .contact-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .contact-text {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .text-block {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+    .text-block h2{
+      font-size: 40px;
+      text-align: center;
+      margin: auto auto auto auto;
+    }
+    
+    .text-block p{
+      font-size: 16px;
+      margin: auto auto auto auto;
+    }
+
+    .cta-button {
+      margin: auto auto auto auto;
+      
+    }
+
+      /*FOOTER*/
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .footer-contact {
+        margin-top: 20px;
+        text-align: center;
+    }
+  
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+  }

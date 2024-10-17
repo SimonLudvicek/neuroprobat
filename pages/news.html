@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro Probat</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Přihlašovací formulář -->
+    <div id="login-section">
+        <h2>Přihlášení</h2>
+        <input type="email" id="email-input" placeholder="E-mail">
+        <input type="password" id="password-input" placeholder="Heslo">
+        <button id="login-btn">Přihlásit se</button>
+        <button id="logout-btn" style="display:none;">Odhlásit se</button>
+    </div>
+
+    <!-- Sekce pro přidání novinek, která se zobrazí jen po přihlášení -->
+    <div id="add-news-section" style="display:none;">
+        <h2>Přidat novinku</h2>
+        <input type="text" id="news-title" placeholder="Titulek novinky">
+        <textarea id="news-content-input" placeholder="Obsah novinky"></textarea>
+        <button id="submit-news">Odeslat novinku</button>
+    </div>
+
+    <div id="news-bar" style="background-color: #f0f0f0; padding: 10px; text-align: center;">
+        <span id="news-content">Načítám novinky...</span>
+    </div>
+
+    <script type="module">
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB5mToOLzu4Mv2WfUxnAsycxuSBwvN1nug",
+    authDomain: "neuroprobat.firebaseapp.com",
+    projectId: "neuroprobat",
+    storageBucket: "neuroprobat.appspot.com",
+    messagingSenderId: "585486600033",
+    appId: "1:585486600033:web:d3482746023ec12bc5e720",
+    measurementId: "G-XV2P8J7WPP"
+  };
+
+        // Inicializace Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        const loginBtn = document.getElementById('login-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const addNewsSection = document.getElementById('add-news-section');
+
+        // Přihlášení pomocí e-mailu a hesla
+        loginBtn.addEventListener('click', () => {
+    console.log('Kliknutí na přihlašovací tlačítko');  // Debug
+
+    const email = document.getElementById('email-input').value;
+    const password = document.getElementById('password-input').value;
+    
+    console.log('Zadaný email:', email);  // Debug
+    console.log('Zadané heslo:', password);  // Debug
+
+    auth.signInWithEmailAndPassword(email, password)
+        .then(userCredential => {
+            console.log('Přihlášení úspěšné:', userCredential);  // Debug
+            loginBtn.style.display = 'none';
+            logoutBtn.style.display = 'block';
+            addNewsSection.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Chyba při přihlašování:', error);  // Debug
+            alert("Přihlášení selhalo. Zkontroluj svůj e-mail a heslo.");
+        });
+});
+        // Odhlášení uživatele
+        logoutBtn.addEventListener('click', () => {
+            auth.signOut().then(() => {
+                loginBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+                addNewsSection.style.display = 'none';
+            }).catch(error => {
+                console.error("Chyba při odhlašování:", error);
+            });
+        });
+
+        // Přidávání novinky do Firestore
+        document.getElementById('submit-news').addEventListener('click', () => {
+            const title = document.getElementById('news-title').value;
+            const content = document.getElementById('news-content-input').value;
+
+            db.collection('news').add({
+                title: title,
+                content: content,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                alert("Novinka přidána!");
+            }).catch(error => {
+                console.error("Chyba při přidávání novinky: ", error);
+            });
+        });
+
+        // Načítání novinek z Firestore
+        db.collection('news').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+            const newsBar = document.getElementById('news-content');
+            newsBar.innerHTML = '';  // Vyčistit staré novinky
+            snapshot.forEach(doc => {
+                const news = doc.data();
+                newsBar.innerHTML += `<h3>${news.title}</h3><p>${news.content}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>

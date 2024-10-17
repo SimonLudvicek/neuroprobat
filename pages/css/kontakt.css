@@ -1,0 +1,667 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Lexend";
+    font-weight: 400;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.logo img {
+    width: 350px; /* Set the logo width */
+    margin-left: 3%;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menu a.active {
+    border-bottom: 2px solid #000; /* Underline active link */
+}
+
+.menu a:hover {
+    color: #555;
+}
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 3%;
+}
+
+.doctor-name {
+    font-weight: bold;
+    font-size: 20px;
+    font-size: 600;
+}
+
+.divider {
+    height: 35px;
+    width: 2px;
+    background-color: #000; /* Black vertical divider */
+}
+
+.contact-btn {
+    padding: 10px 20px;
+    border: 2px solid #CDBBAB33;
+    border-radius: 20px;
+    background-color: rgba(177, 139, 105, 0.2);
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: rgba(177, 139, 105, 0.5);
+    color: #333;
+}
+
+/*MOBILE MENU*/
+
+.mobile-menu {
+    display: none;
+    background-color: transparent; /* Žádné pozadí */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile-menu ul li {
+    margin: 20px 0; /* Větší mezera mezi položkami */
+  }
+  
+  .mobile-menu ul li a {
+    color: #000; /* Černá barva textu */
+    text-decoration: none;
+    font-family: 'Lexend', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Dolní linka mezi položkami */
+    text-align: left; /* Zarovnání textu vlevo */
+  }
+  
+  /* Hamburger menu styling */
+  .hamburger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .hamburger-menu .line {
+    width: 30px;
+    height: 4px;
+    border-radius: 100px;
+    background-color: #B18B69; /* Hnědá barva */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Animace pro otevření/zavření menu */
+  .hamburger-menu.active .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .hamburger-menu.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-menu.active .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  
+  .content-wrapper {
+    transition: margin-top 0.3s ease;
+  }
+  
+  
+  .mobile-menu.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    background-color: transparent;
+  }
+
+/*ALERT*/
+
+.alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8d7da; /* Červená barva pro upozornění */
+    color: #721c24; /* Tmavší červený text */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lexend', sans-serif;
+}
+
+.alert a {
+    color: #721c24;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.alert a:hover {
+    text-decoration: underline;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 24px;
+    padding-left: 20px;
+    color: #721c24;
+}
+
+.alert.hidden {
+    display: none;
+}
+
+/*ORDER FORM*/
+
+.order-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: 50px auto;
+    background: #CDBBAB33;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.order-container {
+    width: 60%;
+    position: relative;
+}
+
+.order-heading {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 500px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-input {
+    flex: 1;
+    padding: 15px;
+    border-radius: 30px;
+    border: 2px solid #e0e0e0;
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    background-color: #fff;
+    outline: none;
+    text-align: center;
+    width: 100%;
+}
+
+.form-input:focus {
+    text-align: left;
+}
+.form-input:focus::placeholder {
+    text-align: left;
+}
+
+.select-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+select.form-input {
+    appearance: none; /* Odstranění výchozí šipky */
+    width: 10%; /* Zajištění plné šířky pole */
+    padding-right: 50px; /* Prostor pro šipku */
+}
+
+.arrow-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+}
+
+.message-input {
+    height: 200%; /* Zvětšená výška pro pole zprávy */
+    resize: vertical;
+    width: 100%; /* Zajištění plné šířky */
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.submit-button {
+    background: linear-gradient(180deg, #B18B69 0%, rgba(177, 139, 105, 0.6) 100%);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    transition: 0.3s;
+    max-width: 230px;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    opacity: 0.9;
+}
+
+/* Divider */
+.divider-1 {
+    width: 1px;
+    background-color: #CCCBC9;
+    height: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.opening-hours {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hours-box {
+    width: 360px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.hours-title {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.brown {
+    font-size: 20px;
+    color: #B18B69;
+}
+
+.hours-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #1E1E1E;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.hours-list li span {
+    text-align: center;
+    width: 150px;
+}
+/*DIVIDERS*/
+
+.divider-2 {
+    width: 90%;
+    max-width: 1300px;
+    height: 1px;
+    border: 3px solid #cdbbab;
+    border-radius: 50px;
+    margin: 0 auto 60px; /* Zarovnání na střed a prostor pod ním */
+    opacity: 0.2;
+}
+
+
+/*FOOTER*/
+
+.footer-section {
+    background-color: #fff;
+    padding: 40px 0;
+    margin-top: -30px;
+}
+
+.footer-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.footer-text h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.footer-text p {
+    font-size: 14px;
+    color: #333;
+}
+
+.footer-back-to-top {
+    text-align: center;
+}
+
+.footer-back-to-top button {
+  padding: 10px 40px;
+  border: 2px solid #CDBBAB33;
+  border-radius: 31px;
+  background-color: rgba(177, 139, 105, 0.2);
+  text-decoration: none;
+  color: #000;
+  font-family: 'Lexend';
+  font-weight: 500;
+  font-size: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-back-to-top:hover button {
+  background-color: rgba(177, 139, 105, 0.5);
+  color: #333;
+}
+
+.footer-contact {
+    text-align: left;
+}
+
+.footer-contact h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer-contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact ul li img {
+    width: 16px;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    padding-top: 20px;
+}
+
+.inline-logo {
+  display: inline; /* Nastaví obrázek jako inline prvek */
+  vertical-align: middle; /* Upraví vertikální zarovnání loga vedle textu */
+  margin-left: 5px; /* Přidá mezeru mezi textem a logem */
+  margin-bottom: 2px;
+}
+
+.footer-left p{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-center {
+    text-align: center;
+    flex-grow: 1; /* Centrovaný text */
+}
+
+.footer-bottom a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+@media (max-width: 1130px) {
+    .order-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-container, .opening-hours {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .order-form {
+        height: 600px;
+    }
+
+    .hours-box {
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .divider-1 {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu, .hamburger-menu, .mobile-logo {
+        display: none !important;
+    }
+  }
+
+@media (max-width: 768px) {
+
+    /*NAVBAR*/
+      .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+  
+      .menu {
+          margin-top: 10px;
+          flex-direction: column;
+      }
+  
+      .contact-section {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+
+      /*MOBILE MENU*/
+
+    .menu, .contact-section, .desktop-logo {
+        display: none; /* Skrytí desktopového menu a loga na mobilních zařízeních */
+    }
+  
+    .hamburger-menu {
+      display: flex;
+      position: absolute;
+      right: 20px;
+      top: 30px;
+  }
+  
+  /* Přidání mobilního loga */
+  .mobile-logo {
+      display: flex;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+  }
+  
+  .mobile-logo img {
+      width: 300px; /* Velikost mobilního loga */
+      height: auto;
+  }
+  
+  .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      height: auto; /* Automatická výška podle obsahu */
+      z-index: 1000;
+      padding: 20px;
+  }
+
+  .navbar-toggle {
+    margin-bottom: 50px;
+  }
+
+      /*ORDER FORM*/
+
+      .order-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-container {
+        width: 100%;
+    }
+
+    .submit-button {
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .opening-hours {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 30px;
+        
+    }
+
+    .hours-box {
+        width: 90%;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+        /*FOOTER*/
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .footer-contact {
+        margin-top: 20px;
+        text-align: center;
+    }
+  
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+  }
