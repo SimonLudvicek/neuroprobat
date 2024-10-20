@@ -164,48 +164,7 @@ body {
     background-color: transparent;
   }
 
-/*ALERT*/
 
-.alert {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #f8d7da; /* Červená barva pro upozornění */
-    color: #721c24; /* Tmavší červený text */
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    width: 90%;
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Lexend', sans-serif;
-}
-
-.alert a {
-    color: #721c24;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.alert a:hover {
-    text-decoration: underline;
-}
-
-.close-btn {
-    cursor: pointer;
-    font-size: 24px;
-    line-height: 24px;
-    padding-left: 20px;
-    color: #721c24;
-}
-
-.alert.hidden {
-    display: none;
-}
 
 /*ORDER FORM*/
 
